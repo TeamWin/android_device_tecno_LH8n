@@ -36,6 +36,7 @@
 /dev/wmtdetect            0660   system     system
 /dev/fw_log_wmt           0660   system     system
 /dev/conninfra_dev        0660   system     system
+/dev/conn_pwr_dev         0660   system     system
 
 # BT
 /dev/stpbt                0660   bluetooth  bluetooth
@@ -45,11 +46,11 @@
 /dev/gpsdl0               0660   gps        gps
 /dev/gpsdl1               0660   gps        gps
 /dev/stpgps               0660   gps        gps
-/dev/stpgps2              0660   gps        gps
 /dev/gps                  0660   gps        system
-/dev/fw_log_gps           0660   gps        gps
 /dev/gps_emi              0660   gps        gps
-
+/dev/gps2scp              0660   gps        gps
+/dev/gps_pwr              0660   gps        gps
+/dev/fw_log_gps           0660   gps        gps
 # ANT
 /dev/stpant               0660   system     system
 
@@ -58,12 +59,10 @@
 /dev/fw_log_wifi          0660   wifi     wifi
 
 # FMRadio
-# NFBD:modify  for dev/fm 0660->0666 NFRFP-5229 by xiaoyan.shi 20211125
+# NFBD:modify  for dev/fm 0660->0666 by yuguo.zhang 20220406
 /dev/fm                   0666   media     media
 
 # NFC
-/dev/msr3110              0666   root       root
-/dev/mt6605               0660   nfc        radio
 /dev/st21nfc              0660   nfc        radio
 /dev/st54spi              0660   secure_element        secure_element
 
@@ -82,6 +81,9 @@
 /dev/mobicore-user        0666   system     system
 /dev/t-base-tui           0666   system     system
 
+# teeperf driver
+/dev/teeperf              0666   system     system
+
 #v4l2 device
 /dev/video*      0660 camera system
 /dev/media*      0660 camera system
@@ -90,11 +92,18 @@
 #v4l2 codec
 /dev/vcu    0660 camera system
 
+#vdec-fmt
+/dev/vdec-fmt   0660 media system
+/dev/fmt_sync   0660 system system
+
 #v4l2 camera
 /dev/mtk_hcp     0660 camera system
 
 # DRM node
 /dev/dri/card0            0660   system     system
+
+# MDDP node
+/dev/mddp                 0660   system     system
 
 # add the read write right of ttyUSB*
 /dev/bus/usb/*     	  0660   root       usb
@@ -149,7 +158,7 @@
 /dev/ttyRB*               0660   radio      radio
 
 # Mali node
-/dev/mali                 0666   system     graphics
+/dev/mali0                0666   system     graphics
 
 # Change ION driver permission
 /dev/ion                  0666   system     graphics
@@ -178,17 +187,10 @@
 #touch
 /dev/touch                0660   root       system
 /dev/hotknot              0660   root       system
-/dev/tll                  0660   root       system
 
 #hang_detect
-/dev/RT_Monitor           0600   system     system
-/dev/kick_powerkey        0600   system     system
+/dev/RT_Monitor           0660   system     system
+/dev/kick_powerkey        0660   system     system
 
 #MTK In-House TEE
 /dev/ttyACM0              0660   radio      radio
-
-#BSP: add ultrasound support CILHLJYQ-4 by yu.xiang5 20211221 start
-#elliptic sensor
-/dev/elliptic0            0644   system     system
-/dev/elliptic1            0644   system     system
-#BSP: add ultrasound support CILHLJYQ-4 by yu.xiang5 20211221 end
