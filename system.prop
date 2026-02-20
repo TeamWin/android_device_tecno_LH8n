@@ -6,15 +6,12 @@ ro.sys.usb.storage.type=mtp
 
 # Crypto
 ro.crypto.volume.filenames_mode=aes-256-cts
-ro.crypto.support_metadata_encrypt=true
+
+# Gatekeeper
+ro.hardware.gatekeeper=trustonic
 
 # TEE
 ro.vendor.mtk_tee_gp_support=1
 ro.vendor.mtk_trustonic_tee_support=1
 
-# Gatekeeper
-ro.hardware.kmsetkey=trustonic
-ro.hardware.gatekeeper=trustonic
-
-# Keymaster
 keymaster_ver=4.1
